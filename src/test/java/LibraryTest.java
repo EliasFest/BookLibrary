@@ -28,10 +28,11 @@ class LibraryTest {
     public void showAllBooksTest() {
         Library library = new Library();
         library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
+        library.addBook(new Book(26263787, "test", "vorhanden"));
         library.showAllBooks();
-        String expected = "99775522, No Longer Human";
+        String expected = "[99775522 No Longer Human, 26263787 test]";
 
-        String printed = library.getBookList().get(0).toString();
+        String printed = library.getBookList().toString();
         assertEquals(expected, printed);
     }
 

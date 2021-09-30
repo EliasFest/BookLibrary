@@ -36,6 +36,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return serialNumber + ", " + bookName;
+        return serialNumber + " " + bookName;
     }
 }

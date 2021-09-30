@@ -31,8 +31,18 @@ public class Library {
         }
     }
 
-    public void showAllBooks() {
+    public void returnBook(int bookID, int userID) {
+        for (int i = 0; i < books.size(); i++) {
+            if (bookID == books.get(i).getSerialNumber()) {
+                books.get(i).setBookStatus("Vorhanden");
+                books.get(i).setWhoHasBook(0);
+            }
+        }
+    }
+
+    public String showAllBooks() {
         System.out.print(books);
+        return books.toString();
     }
 
     public void showAllBookStatus() {

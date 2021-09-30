@@ -26,5 +26,9 @@ public class main {
         System.out.print("\n");
         library.showWhoHasBook();
 
+        library.returnBook(456, 666);
+        System.out.print("\n");
+        library.showWhoHasBook();
+
     }
 }
