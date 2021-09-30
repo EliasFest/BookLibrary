@@ -26,6 +26,14 @@ public class Book {
         return bookStatus;
     }
 
+    public void setWhoHasBook(int whoHasBook) {
+        this.whoHasBook = whoHasBook;
+    }
+
+    public int getWhoHasBook() {
+        return whoHasBook;
+    }
+
     @Override
     public String toString() {
         return serialNumber + ", " + bookName;

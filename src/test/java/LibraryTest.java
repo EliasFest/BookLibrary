@@ -15,11 +15,21 @@ class LibraryTest {
     }
 
     @Test
+    public void AddUserTest() {
+        Library library = new Library();
+        library.addUser(new User(442211, "Elias"));
+        int expected = 442211;
+
+        User user = library.getUserList().get(0);
+        assertEquals(expected, user.getUserNumber());
+    }
+
+    @Test
     public void showAllBooksTest() {
         Library library = new Library();
         library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
         library.showAllBooks();
-        String expected = "99775522 No Longer Human,";
+        String expected = "99775522, No Longer Human";
 
         String printed = library.getBookList().get(0).toString();
         assertEquals(expected, printed);

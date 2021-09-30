@@ -10,4 +10,8 @@ public class User {
         this.userNumber = userNumber;
         this.userName = userName;
     }
+
+    public int getUserNumber() {
+        return userNumber;
+    }
 }

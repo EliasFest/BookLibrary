@@ -18,10 +18,13 @@ public class main {
 
         library.searchBookByNumber(456);
 
-        library.takeBook(456, 444);
+        library.takeBook(456, 666);
 
         library.showAllBooks();
-        library.showAllLendBooks();
+        System.out.print("\n");
+        library.showAllBookStatus();
+        System.out.print("\n");
+        library.showWhoHasBook();
 
     }
 }

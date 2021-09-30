@@ -24,25 +24,34 @@ public class Library {
 
     public void takeBook(int bookID, int userID) {
         for (int i = 0; i < books.size(); i++) {
-            if (bookID == books.get(i).getSerialNumber()){
+            if (bookID == books.get(i).getSerialNumber()) {
                 books.get(i).setBookStatus("Ausgeliehen");
+                books.get(i).setWhoHasBook(userID);
             }
         }
     }
 
-    public String showAllBooks() {
-        System.out.print(books + "\n");
-        return books.toString();
+    public void showAllBooks() {
+        System.out.print(books);
     }
 
-    public String showAllLendBooks() {
+    public void showAllBookStatus() {
         for (int i = 0; i < books.size(); i++) {
             System.out.print(books.get(i).getBookStatus() + " ");
         }
-        return books.toString();
+    }
+
+    public void showWhoHasBook() {
+        for (int i = 0; i < books.size(); i++) {
+            System.out.print(books.get(i).getWhoHasBook() + " ");
+        }
     }
 
     public List<Book> getBookList() {
         return books;
+    }
+
+    public List<User> getUserList() {
+        return users;
     }
 }
