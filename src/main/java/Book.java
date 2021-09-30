@@ -1,10 +1,10 @@
 public class Book {
     private int serialNumber;
     private String bookName;
-    private String bookStatus;
+    private Status bookStatus;
     private int whoHasBook;
 
-     Book(int serialNumber, String bookName, String bookStatus) {
+    Book(int serialNumber, String bookName, Status bookStatus) {
         this.serialNumber = serialNumber;
         this.bookName = bookName;
         this.bookStatus = bookStatus;
@@ -18,20 +18,18 @@ public class Book {
         return bookName;
     }
 
-    public void setBookStatus(String bookStatus) {
-        this.bookStatus = bookStatus;
-    }
-
-    public String getBookStatus() {
+    public Status getBookStatus() {
         return bookStatus;
     }
-
-    public void setWhoHasBook(int whoHasBook) {
-        this.whoHasBook = whoHasBook;
+    public void setBookStatus(Status bookStatus) {
+        this.bookStatus = bookStatus;
     }
 
     public int getWhoHasBook() {
         return whoHasBook;
+    }
+    public void setWhoHasBook(int whoHasBook) {
+        this.whoHasBook = whoHasBook;
     }
 
     @Override

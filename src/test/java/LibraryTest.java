@@ -7,7 +7,7 @@ class LibraryTest {
     @Test
     public void AddBookTest() {
         Library library = new Library();
-        library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
         int expected = 99775522;
 
         Book book = library.getBookList().get(0);
@@ -18,17 +18,17 @@ class LibraryTest {
     public void AddUserTest() {
         Library library = new Library();
         library.addUser(new User(442211, "Elias"));
-        int expected = 442211;
+        String expected = "[442211 Elias]";
 
-        User user = library.getUserList().get(0);
-        assertEquals(expected, user.getUserNumber());
+        String user = library.getUserList().toString();
+        assertEquals(expected, user);
     }
 
     @Test
-    public void showAllBooksTest() {
+    public void getBookListTest() {
         Library library = new Library();
-        library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
-        library.addBook(new Book(26263787, "test", "vorhanden"));
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
+        library.addBook(new Book(26263787, "test", Status.AVAILABLE));
         library.showAllBooks();
         String expected = "[99775522 No Longer Human, 26263787 test]";
 
@@ -39,8 +39,8 @@ class LibraryTest {
     @Test
     public void findBookByNumber() {
         Library library = new Library();
-        library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
-        library.addBook(new Book(22557799, "The Setting Sun", "vorhanden"));
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
+        library.addBook(new Book(22557799, "The Setting Sun", Status.AVAILABLE));
 
         Book foundBook = library.searchBookByNumber(99775522);
         String expected = "No Longer Human";
@@ -52,8 +52,8 @@ class LibraryTest {
     @Test
     public void bookByNumberNotAvailable() {
         Library library = new Library();
-        library.addBook(new Book(99775522, "No Longer Human", "vorhanden"));
-        library.addBook(new Book(22557799, "The Setting Sun", "vorhanden"));
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
+        library.addBook(new Book(22557799, "The Setting Sun", Status.AVAILABLE));
 
         Book foundBook = library.searchBookByNumber(1);
 

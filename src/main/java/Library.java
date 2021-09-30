@@ -25,7 +25,7 @@ public class Library {
     public void takeBook(int bookID, int userID) {
         for (int i = 0; i < books.size(); i++) {
             if (bookID == books.get(i).getSerialNumber()) {
-                books.get(i).setBookStatus("Ausgeliehen");
+                books.get(i).setBookStatus(Status.AVAILABLE);
                 books.get(i).setWhoHasBook(userID);
             }
         }
@@ -34,7 +34,7 @@ public class Library {
     public void returnBook(int bookID, int userID) {
         for (int i = 0; i < books.size(); i++) {
             if (bookID == books.get(i).getSerialNumber()) {
-                books.get(i).setBookStatus("Vorhanden");
+                books.get(i).setBookStatus(Status.AVAILABLE);
                 books.get(i).setWhoHasBook(0);
             }
         }
@@ -64,4 +64,9 @@ public class Library {
     public List<User> getUserList() {
         return users;
     }
+}
+
+enum Status{
+    AVAILABLE,
+    RENT
 }

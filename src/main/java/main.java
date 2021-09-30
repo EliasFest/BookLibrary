@@ -1,8 +1,8 @@
 public class main {
     public static void main(String[] args) {
-        Book book1 = new Book(123, "hallo", "Vorhanden");
-        Book book2 = new Book(456, "Test", "Vorhanden");
-        Book book3 = new Book(789, "BuchIstGut", "Vorhanden");
+        Book book1 = new Book(123, "hallo", Status.AVAILABLE);
+        Book book2 = new Book(456, "Test", Status.AVAILABLE);
+        Book book3 = new Book(789, "BuchIstGut", Status.AVAILABLE);
 
         User user1 = new User(444, "Elias");
         User user2 = new User(666, "Marvin");
@@ -16,14 +16,16 @@ public class main {
         library.addUser(user1);
         library.addUser(user2);
 
-        library.searchBookByNumber(456);
+        Book searchedBook = library.searchBookByNumber(456);
 
         library.takeBook(456, 666);
 
         library.showAllBooks();
         System.out.print("\n");
+
         library.showAllBookStatus();
         System.out.print("\n");
+
         library.showWhoHasBook();
 
         library.returnBook(456, 666);
