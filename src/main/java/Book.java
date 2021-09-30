@@ -21,6 +21,7 @@ public class Book {
     public Status getBookStatus() {
         return bookStatus;
     }
+
     public void setBookStatus(Status bookStatus) {
         this.bookStatus = bookStatus;
     }
@@ -28,6 +29,7 @@ public class Book {
     public int getWhoHasBook() {
         return whoHasBook;
     }
+
     public void setWhoHasBook(int whoHasBook) {
         this.whoHasBook = whoHasBook;
     }

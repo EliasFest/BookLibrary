@@ -59,4 +59,26 @@ class LibraryTest {
 
         assertEquals(null, foundBook);
     }
+    @Test
+    public void showBookStatusTest(){
+        Library library = new Library();
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
+
+        String expected = "AVAILABLE ";
+        String statusBook = library.showAllBookStatus();
+
+        assertEquals(expected, statusBook);
+    }
+
+    @Test
+    public void showWhoHasBookTest(){
+        Library library = new Library();
+        library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
+        library.takeBook(99775522, 666);
+
+        String expected = "666 ";
+        String statusBook = library.showWhoHasBook();
+
+        assertEquals(expected, statusBook);
+    }
 }

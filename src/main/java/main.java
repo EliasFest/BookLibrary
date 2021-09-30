@@ -20,13 +20,13 @@ public class main {
 
         library.takeBook(456, 666);
 
-        library.showAllBooks();
+        System.out.print(library.showAllBooks());
         System.out.print("\n");
 
-        library.showAllBookStatus();
+        System.out.print(library.showAllBookStatus());
         System.out.print("\n");
 
-        library.showWhoHasBook();
+        System.out.println(library.showWhoHasBook());
 
         library.returnBook(456, 666);
         System.out.print("\n");
