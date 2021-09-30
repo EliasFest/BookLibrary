@@ -21,6 +21,7 @@ public class main {
         library.takeBook(456, 444);
 
         library.showAllBooks();
+        library.showAllLendBooks();
 
     }
 }

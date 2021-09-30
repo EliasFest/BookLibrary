@@ -31,7 +31,14 @@ public class Library {
     }
 
     public String showAllBooks() {
-        System.out.print(books + books.get(0).getBookStatus());
+        System.out.print(books + "\n");
+        return books.toString();
+    }
+
+    public String showAllLendBooks() {
+        for (int i = 0; i < books.size(); i++) {
+            System.out.print(books.get(i).getBookStatus() + " ");
+        }
         return books.toString();
     }
 

@@ -1,7 +1,7 @@
 public class Book {
     private int serialNumber;
     private String bookName;
-    private String bookStatus = "Vorhanden";
+    private String bookStatus;
     private int whoHasBook;
 
      Book(int serialNumber, String bookName, String bookStatus) {
