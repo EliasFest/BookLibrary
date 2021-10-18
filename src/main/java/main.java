@@ -7,9 +7,14 @@ public class main {
         User user1 = new User(444, "Elias");
         User user2 = new User(666, "Marvin");
 
-        LibraryService libraryService = new LibraryService();
+        LibraryRepository libraryService = new LibraryRepository();
 
-        libraryService.addBookSQL(book1);
+        //libraryService.addBookSQL(book1);
+        //libraryService.addBookSQL(book2);
+        //libraryService.addBookSQL(book3);
 
+        //libraryService.addUserSQL(user1);
+
+        libraryService.deleteBookSQL(book1);
     }
 }
