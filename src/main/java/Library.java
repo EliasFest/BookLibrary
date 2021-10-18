@@ -1,44 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
+/*import java.util.HashMap;
 
 public class Library {
-    private List<Book> books = new ArrayList<>();
-    private List<User> users = new ArrayList<>();
+    private HashMap<Integer, Book> books = new HashMap();
+    private HashMap<Integer, User> users = new HashMap();
 
     public void addBook(Book newBook) {
-        books.add(newBook);
+        books.put(newBook.getSerialNumber(), newBook);
     }
 
     public void addUser(User newUser) {
-        users.add(newUser);
-    }
-
-    public Book searchBookByNumber(int id) {
-        for (Book searchingBook : books) {
-            if (id == searchingBook.getSerialNumber()) {
-                return searchingBook;
-            }
-        }
-        return null;
+        users.put(newUser.getUserNumber(), newUser);
     }
 
     public void takeBook(int bookID, int userID) {
-        for (Book book : books) {
-            if (bookID == book.getSerialNumber()) {
-                book.setBookStatus(Status.RENT);
-                book.setWhoHasBook(userID);
-
-            }
-        }
+        Book rentBook = books.get(bookID);
+        rentBook.setBookStatus(Status.RENT);
+        rentBook.setWhoHasBook(userID);
     }
 
     public void returnBook(int bookID, int userID) {
-        for (int i = 0; i < books.size(); i++) {
-            if (bookID == books.get(i).getSerialNumber()) {
-                books.get(i).setBookStatus(Status.AVAILABLE);
-                books.get(i).setWhoHasBook(0);
-            }
-        }
+        Book returnedBook = books.get(bookID);
+        returnedBook.setBookStatus(Status.AVAILABLE);
+        returnedBook.setWhoHasBook(0);
     }
 
     public String showAllBooks() {
@@ -47,27 +30,26 @@ public class Library {
     }
 
     public String showAllBookStatus() {
-        String statusBook="";
-        for (int i = 0; i < books.size(); i++) {
-            statusBook = statusBook + books.get(i).getBookStatus() + " ";
+        String statusBook = "";
+        for (Book book : books.values()) {
+            statusBook = statusBook + book.getBookStatus() + " ";
         }
         return statusBook;
     }
 
     public String showWhoHasBook() {
-        String whoHasBook="";
-        for (int i = 0; i < books.size(); i++) {
-            whoHasBook = whoHasBook + books.get(i).getWhoHasBook() + " ";
+        String whoHasBook = "";
+        for (Book book : books.values()) {
+            whoHasBook = whoHasBook + book.getWhoHasBook() + " ";
         }
         return whoHasBook;
     }
 
-
-    public List<Book> getBookList() {
+    public HashMap<Integer, Book> getBookMap() {
         return books;
     }
 
-    public List<User> getUserList() {
+    public HashMap<Integer, User> getUserMap() {
         return users;
     }
 }
@@ -75,4 +57,4 @@ public class Library {
 enum Status {
     AVAILABLE,
     RENT
-}
+} */

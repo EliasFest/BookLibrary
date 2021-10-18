@@ -10,7 +10,7 @@ class LibraryTest {
         library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
         int expected = 99775522;
 
-        Book book = library.getBookList().get(0);
+        Book book = library.getBookMap().get(0);
         assertEquals(expected, book.getSerialNumber());
     }
 
@@ -20,7 +20,7 @@ class LibraryTest {
         library.addUser(new User(442211, "Elias"));
         String expected = "[442211 Elias]";
 
-        String user = library.getUserList().toString();
+        String user = library.getUserMap().toString();
         assertEquals(expected, user);
     }
 
@@ -32,7 +32,7 @@ class LibraryTest {
         library.showAllBooks();
         String expected = "[99775522 No Longer Human, 26263787 test]";
 
-        String printed = library.getBookList().toString();
+        String printed = library.getBookMap().toString();
         assertEquals(expected, printed);
     }
 
@@ -42,7 +42,7 @@ class LibraryTest {
         library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
         library.addBook(new Book(22557799, "The Setting Sun", Status.AVAILABLE));
 
-        Book foundBook = library.searchBookByNumber(99775522);
+        Book foundBook = library.getBookMap().get(99775522);
         String expected = "No Longer Human";
 
         assertEquals(expected, foundBook.getBookName());
@@ -55,7 +55,7 @@ class LibraryTest {
         library.addBook(new Book(99775522, "No Longer Human", Status.AVAILABLE));
         library.addBook(new Book(22557799, "The Setting Sun", Status.AVAILABLE));
 
-        Book foundBook = library.searchBookByNumber(1);
+        Book foundBook = library.getBookMap().get(1);
 
         assertEquals(null, foundBook);
     }

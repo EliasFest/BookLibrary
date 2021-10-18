@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 public class LibraryService {
 
-    public void addBook(Book book) {
-        String sql = "INSERT INTO books VALUES (?,?,?,?)";
+    public void addBookSQL(Book book) {
+        String sql = "INSERT INTO Book VALUES (?,?)";
 
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement prepareStatement = databaseConnection.prepareStatement(sql);
