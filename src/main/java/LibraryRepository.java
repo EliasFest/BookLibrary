@@ -1,7 +1,5 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.management.Query;
+import java.sql.*;
 
 public class LibraryRepository {
 
@@ -57,6 +55,44 @@ public class LibraryRepository {
         ) {
             prepareStatement.setInt(1, user.getUserNumber());
             prepareStatement.executeUpdate();
+
+        } catch (SQLException exception) {
+            System.out.println("Error while connecting to database " + exception);
+        }
+    }
+
+    public void showAllBooksSQL() {
+        String sql = "SELECT * FROM Book";
+
+        try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
+             PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
+        ) {
+            ResultSet rs = prepareStatement.executeQuery(sql);
+
+            while (rs.next()) {
+                //Display values
+                System.out.println(" BookID: " + rs.getInt("serialNumber"));
+                System.out.println(" Name: " + rs.getString("bookName"));
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error while connecting to database " + exception);
+        }
+    }
+
+    public void showAllUsersSQL() {
+        String sql = "SELECT * FROM User";
+
+        try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
+             PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
+        ) {
+            ResultSet rs = prepareStatement.executeQuery(sql);
+
+            while (rs.next()) {
+                //Display values
+                System.out.println(" UserID: " + rs.getInt("userNumber"));
+                System.out.println(" Name: " + rs.getString("userName"));
+            }
 
         } catch (SQLException exception) {
             System.out.println("Error while connecting to database " + exception);

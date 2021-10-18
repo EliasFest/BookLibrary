@@ -15,6 +15,10 @@ public class main {
 
         //libraryService.addUserSQL(user1);
 
-        libraryService.deleteBookSQL(book1);
+        //libraryService.deleteBookSQL(book1);
+        //libraryService.deleteUserSQL(user1);
+
+        libraryService.showAllBooksSQL();
+        libraryService.showAllUsersSQL();
     }
 }
