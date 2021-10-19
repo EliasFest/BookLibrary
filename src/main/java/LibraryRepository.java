@@ -1,5 +1,8 @@
 import javax.management.Query;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 public class LibraryRepository {
 
@@ -61,18 +64,36 @@ public class LibraryRepository {
         }
     }
 
+    public void takeBookSQL(Book book, User user) {
+        String sql = "INSERT INTO LendOut VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
+             PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
+        ) {
+            prepareStatement.setInt(1, );
+            prepareStatement.setInt(2, book.getSerialNumber());
+            prepareStatement.setInt(3, user.getUserNumber());
+            prepareStatement.setDate(4, new Date(620611200000L));
+            prepareStatement.setDate(5, new Date(622790105000L));
+            prepareStatement.executeUpdate();
+
+        } catch (SQLException exception) {
+            System.out.println("Error while connecting to database " + exception);
+        }
+    }
+
     public void showAllBooksSQL() {
         String sql = "SELECT * FROM Book";
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
         ) {
-            ResultSet rs = prepareStatement.executeQuery(sql);
+            ResultSet resultset = prepareStatement.executeQuery(sql);
 
-            while (rs.next()) {
+            while (resultset.next()) {
                 //Display values
-                System.out.println(" BookID: " + rs.getInt("serialNumber"));
-                System.out.println(" Name: " + rs.getString("bookName"));
+                System.out.println(" BookID: " + resultset.getInt("serialNumber"));
+                System.out.println(" Name: " + resultset.getString("bookName"));
             }
 
         } catch (SQLException exception) {
@@ -86,12 +107,12 @@ public class LibraryRepository {
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
         ) {
-            ResultSet rs = prepareStatement.executeQuery(sql);
+            ResultSet resultset = prepareStatement.executeQuery(sql);
 
-            while (rs.next()) {
+            while (resultset.next()) {
                 //Display values
-                System.out.println(" UserID: " + rs.getInt("userNumber"));
-                System.out.println(" Name: " + rs.getString("userName"));
+                System.out.println(" UserID: " + resultset.getInt("userNumber"));
+                System.out.println(" Name: " + resultset.getString("userName"));
             }
 
         } catch (SQLException exception) {
