@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class LibraryService {
     LibraryRepository libraryRepository = new LibraryRepository();
 
@@ -11,6 +13,9 @@ public class LibraryService {
 
     public void showMyBooks(int userID){
         libraryRepository.getBooksByUserID(userID);
+    }
+    public void showAllBook(){
+        System.out.println(libraryRepository.getAllBooks());
     }
 
 

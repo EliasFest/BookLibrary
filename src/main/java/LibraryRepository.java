@@ -1,6 +1,8 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class LibraryRepository {
@@ -64,7 +66,7 @@ public class LibraryRepository {
     }
 
     public void addLendOutEntry(Book book, User user) {
-        String sql = "INSERT INTO LendOut (memberID, bookID, start, howLongLend) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO LendOut (memberID, bookID, start, endDate) VALUES (?, ?, ?, ?)";
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement preparedStatement = databaseConnection2.prepareStatement(sql);
@@ -101,8 +103,10 @@ public class LibraryRepository {
         }
     }
 
-    public void showAllBooksSQL() {
+    public ArrayList<Book> getAllBooks() {
         String sql = "SELECT * FROM Book";
+
+        ArrayList<Book> allBooks = new ArrayList<>();
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
@@ -110,14 +114,14 @@ public class LibraryRepository {
             ResultSet resultset = prepareStatement.executeQuery();
 
             while (resultset.next()) {
-                //Display values
-                System.out.println(" BookID: " + resultset.getInt("serialNumber"));
-                System.out.println(" Name: " + resultset.getString("bookName"));
+                Book books = new Book(resultset.getInt("serialNumber"), resultset.getString("bookName"));
+                allBooks.add(books);
             }
 
         } catch (SQLException exception) {
             System.out.println("Error while connecting to database " + exception);
         }
+        return allBooks;
     }
 
     public void showAllUsersSQL() {

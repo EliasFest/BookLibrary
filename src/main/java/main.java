@@ -9,8 +9,9 @@ public class main {
 
       LibraryService libraryService = new LibraryService();
 
-      libraryService.lendOut(book1, user1);
-      libraryService.showMyBooks(user1.getUserNumber());
-      libraryService.returnBook(book1);
+      //libraryService.lendOut(book1, user1);
+      //libraryService.showMyBooks(user1.getUserNumber());
+      //libraryService.returnBook(book1);
+        libraryService.showAllBook();
     }
 }
