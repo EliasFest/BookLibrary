@@ -7,20 +7,10 @@ public class main {
         User user1 = new User(444, "Elias");
         User user2 = new User(666, "Marvin");
 
-        LibraryRepository libraryService = new LibraryRepository();
+      LibraryService libraryService = new LibraryService();
 
-        //libraryService.addBookSQL(book1);
-        //libraryService.addBookSQL(book2);
-        //libraryService.addBookSQL(book3);
-
-        //libraryService.addUserSQL(user1);
-
-        //libraryService.deleteBookSQL(book1);
-        //libraryService.deleteUserSQL(user1);
-
-        //libraryService.showAllBooksSQL();
-        //libraryService.showAllUsersSQL();
-
-        libraryService.takeBookSQL(book1, user1);
+      libraryService.lendOut(book1, user1);
+      libraryService.showMyBooks(user1.getUserNumber());
+      libraryService.returnBook(book1);
     }
 }
