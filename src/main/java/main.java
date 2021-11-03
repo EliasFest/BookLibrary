@@ -7,11 +7,11 @@ public class main {
         User user1 = new User(444, "Elias");
         User user2 = new User(666, "Marvin");
 
-      LibraryService libraryService = new LibraryService();
+        LibraryService libraryService = new LibraryService();
 
-      //libraryService.lendOut(book1, user1);
-      //libraryService.showMyBooks(user1.getUserNumber());
-      //libraryService.returnBook(book1);
-        libraryService.showAllBook();
+        libraryService.lendOut(book3, user1);
+        libraryService.showMyBooks(user1.getUserNumber());
+        //libraryService.returnBook(book3);
+        //libraryService.showAllBook();
     }
 }

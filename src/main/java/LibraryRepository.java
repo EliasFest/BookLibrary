@@ -90,7 +90,7 @@ public class LibraryRepository {
     }
 
     public void returnBookSQL(Book book) {
-        String sql = "UPDATE FROM LendOut " + "WHERE bookID = ?";
+        String sql = "DELETE FROM LendOut " + "WHERE bookID = ?";
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement preparedStatement = databaseConnection2.prepareStatement(sql);
@@ -105,7 +105,6 @@ public class LibraryRepository {
 
     public ArrayList<Book> getAllBooks() {
         String sql = "SELECT * FROM Book";
-
         ArrayList<Book> allBooks = new ArrayList<>();
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
@@ -124,8 +123,9 @@ public class LibraryRepository {
         return allBooks;
     }
 
-    public void showAllUsersSQL() {
+    public ArrayList<User> getAllUsersSQL() {
         String sql = "SELECT * FROM User";
+        ArrayList<User> allUser = new ArrayList();
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement prepareStatement = databaseConnection2.prepareStatement(sql);
@@ -134,17 +134,19 @@ public class LibraryRepository {
 
             while (resultset.next()) {
                 //Display values
-                System.out.println(" UserID: " + resultset.getInt("userNumber"));
-                System.out.println(" Name: " + resultset.getString("userName"));
+                User user = new User(resultset.getInt("userNumber"), resultset.getString("userName"));
+                allUser.add(user);
             }
 
         } catch (SQLException exception) {
             System.out.println("Error while connecting to database " + exception);
         }
+        return allUser;
     }
 
-    public void getBooksByUserID(int userID) {
+    public ArrayList<Book> getBooksByUserID(int userID) {
         String sql = "SELECT bookID FROM LendOut " + "WHERE memberID = ?";
+        ArrayList<Book> myBook = new ArrayList();
 
         try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
              PreparedStatement preparedStatement = databaseConnection2.prepareStatement(sql);
@@ -154,11 +156,15 @@ public class LibraryRepository {
 
             while (resultset.next()) {
                 //Display values
-                System.out.println(" BookID: " + resultset.getInt("bookID"));
+                if (userID == userID) {
+                    Book book = new Book(resultset.getInt("bookID"), "buch");
+                    myBook.add(book);
+                }
             }
 
         } catch (SQLException exception) {
             System.out.println("Error while connecting to database " + exception);
         }
+        return myBook;
     }
 }
