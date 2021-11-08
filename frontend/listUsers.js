@@ -19,7 +19,6 @@ function showUserList(users) {
         tdID.innerHTML = users[i].userNumber;
 
 
-
         tr.appendChild(tdUserName)
         tr.appendChild(tdID)
         mainContainer.appendChild(tr)

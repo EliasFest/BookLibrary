@@ -19,7 +19,6 @@ function showBookList(books) {
         tdID.innerHTML = books[i].serialNumber;
 
 
-
         tr.appendChild(tdBookName)
         tr.appendChild(tdID)
         mainContainer.appendChild(tr)

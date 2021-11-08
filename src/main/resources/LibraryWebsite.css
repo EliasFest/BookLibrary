@@ -1,11 +1,44 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    height: auto;
     background-color: #283747;
-    color: white;
+    color: #fffcfc;
 }
 
+.backgroundDiv {
+    background: url("https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg") no-repeat;
+    height: 90vh;
+    text-align: center;
+    background-size: cover;
+
+}
+
+.transparencyDiv {
+    background: #00000066;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.startButtons {
+    border: none;
+    color: black;
+    width: auto;
+    height: 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 28px;
+    margin: 25px 10px;
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: mediumaquamarine;
+    transition-duration: 0.4s;
+}
+
+
 table, th, td {
-    border: 2px solid black;
+    border: 0.5px solid black;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -14,6 +47,7 @@ table, th, td {
     empty-cells: hide;
     table-layout: fixed;
     width: 90%;
+    background-color: #283747;
 }
 
 button {
@@ -41,4 +75,3 @@ img {
     width: 100%;
     height: auto;
 }
-
