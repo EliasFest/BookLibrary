@@ -1,3 +1,8 @@
+package books;
+
+import Library.LibraryService;
+import users.User;
+
 public class main {
     public static void main(String[] args) {
         Book book1 = new Book(123, "hallo");
@@ -9,9 +14,11 @@ public class main {
 
         LibraryService libraryService = new LibraryService();
 
-        libraryService.lendOut(book3, user1);
-        libraryService.showMyBooks(user1.getUserNumber());
+        //libraryService.lendOut(book3, user1);
+        //libraryService.showMyBooks(user1.getUserNumber());
         //libraryService.returnBook(book3);
         //libraryService.showAllBook();
+        //libraryService.showThatBook(456);
+        libraryService.addUserEntry(user2);
     }
 }

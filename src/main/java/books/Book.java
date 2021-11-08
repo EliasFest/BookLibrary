@@ -1,8 +1,10 @@
+package books;
+
 public class Book {
     private int serialNumber;
     private String bookName;
 
-    Book(int serialNumber, String bookName) {
+    public Book(int serialNumber, String bookName) {
         this.serialNumber = serialNumber;
         this.bookName = bookName;
     }

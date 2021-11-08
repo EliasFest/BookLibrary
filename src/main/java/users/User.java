@@ -1,8 +1,10 @@
+package users;
+
 public class User {
     private int userNumber;
     private String userName;
 
-    User(int userNumber, String userName) {
+    public User(int userNumber, String userName) {
         this.userNumber = userNumber;
         this.userName = userName;
     }

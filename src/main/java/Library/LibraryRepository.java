@@ -1,11 +1,23 @@
+package Library;
+
+import books.Book;
+import users.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 
 public class LibraryRepository {
+
+    LibraryRepository(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error loading driver class");
+        }
+    }
 
     public void addBookSQL(Book book) {
         String sql = "INSERT INTO Book VALUES (?,?)";
@@ -157,7 +169,7 @@ public class LibraryRepository {
             while (resultset.next()) {
                 //Display values
                 if (userID == userID) {
-                    Book book = new Book(resultset.getInt("bookID"), "buch");
+                    Book book = new Book(resultset.getInt("bookID"), resultset.getString("memberID"));
                     myBook.add(book);
                 }
             }
@@ -166,5 +178,28 @@ public class LibraryRepository {
             System.out.println("Error while connecting to database " + exception);
         }
         return myBook;
+    }
+    public ArrayList<Book> getBooksByID(int bookID) {
+        String sql = "SELECT serialNumber, bookName FROM Book " + "WHERE serialNumber = ?";
+        ArrayList<Book> thatBook = new ArrayList();
+
+        try (Connection databaseConnection2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "LibraryProject", "root", "ceeyel1404");
+             PreparedStatement preparedStatement = databaseConnection2.prepareStatement(sql);
+        ) {
+            preparedStatement.setInt(1, bookID);
+            ResultSet resultset = preparedStatement.executeQuery();
+
+            while (resultset.next()) {
+                //Display values
+                if (bookID == bookID) {
+                    Book book = new Book(resultset.getInt("serialNumber"), resultset.getString("bookName"));
+                    thatBook.add(book);
+                }
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error while connecting to database " + exception);
+        }
+        return thatBook;
     }
 }
