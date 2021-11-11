@@ -19,6 +19,8 @@ public class main {
         //libraryService.returnBook(book3);
         //libraryService.showAllBook();
         //libraryService.showThatBook(456);
-        libraryService.addUserEntry(user2);
+        //libraryService.addUserEntry(user2);
+        libraryService.addBookEntry(book3);
+        //libraryService.deleteBookEntry(456);
     }
 }

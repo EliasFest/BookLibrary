@@ -17,10 +17,13 @@ function showBookList(books) {
         tdBookName.innerHTML = books[i].bookName;
         const tdID = document.createElement("td");
         tdID.innerHTML = books[i].serialNumber;
+        const tdButton = document.createElement("button");
+        tdButton.innerHTML = "Keine Ahnung";
 
 
         tr.appendChild(tdBookName)
         tr.appendChild(tdID)
+        tr.appendChild(tdButton)
         mainContainer.appendChild(tr)
     }
 }

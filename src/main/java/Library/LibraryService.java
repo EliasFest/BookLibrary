@@ -9,7 +9,6 @@ public class LibraryService {
     LibraryRepository libraryRepository = new LibraryRepository();
 
     public void lendOut(Book book, User user) {
-        //Look if Book is available
         libraryRepository.addLendOutEntry(book, user);
     }
 
@@ -41,9 +40,25 @@ public class LibraryService {
         return gotUsers;
     }
 
-
     public void addUserEntry(User user) {
-        libraryRepository.addUserSQL(user);
+        if (user.getUserNumber() != user.getUserNumber()) {
+            libraryRepository.addUserSQL(user);
+        } else {
+            System.out.println("Error");
+        }
     }
 
+    public void deleteUserEntry(int ID) {
+        libraryRepository.deleteUserSQL(ID);
+    }
+
+
+    public void addBookEntry(Book book) {
+
+            libraryRepository.addBookSQL(book);
+   }
+
+    public void deleteBookEntry(int ID) {
+        libraryRepository.deleteBookSQL(ID);
+    }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class LibraryRepository {
 
-    LibraryRepository(){
+    LibraryRepository() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -179,6 +179,7 @@ public class LibraryRepository {
         }
         return myBook;
     }
+
     public ArrayList<Book> getBooksByID(int bookID) {
         String sql = "SELECT serialNumber, bookName FROM Book " + "WHERE serialNumber = ?";
         ArrayList<Book> thatBook = new ArrayList();
